@@ -7,3 +7,6 @@ flask_testing==0.7.1
 Flask-SocketIO==4.2.1
 PyYAML
 spacy
+simpletransformer
+pytorch
+json
