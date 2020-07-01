@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>QA Generator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/styles.css">
+        <script type="text/javascript">var string1 = '{{ string1|tojson|safe }}';</script>
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+            body, html {
+            height: 100%;
+            line-height: 1.8;
+            }
+        /* <link rel="stylesheet" href="/static/styles.css"> */
+        /* <style type="text/css"> */
+            .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("/w3images/mac.jpg");
+            min-height: 100%;
+            }
+
+            .w3-bar .w3-button {
+            padding: 16px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 align="center">QA Generator</h1>
+        <div class='w3-center'>
+            <a href="/" class="w3-button w3-light-grey"><i class="fa fa-home"></i>Home</a>
+          </div>
+        <div>
+            <p id = "output"></p>
+        </div>
+        <p></p>
+        <script>
+            document.getElementById("output").innerHTML = "";
+            var qa_final = '';
+            qa = JSON.parse(string1.substring(1, string1.length -1));
+            qa.forEach(row => {
+                const question = row.Question;
+                const answer = row.Answer;
+                qa_each = 'Question : ' + question + '<br>Answer : ' + answer + '<br><br>';
+                qa_final = qa_final.concat(qa_each)
+                console.log('Question : ' + question + '\nAnswer : ' + answer + '\n\n')
+            });
+            document.getElementById("output").innerHTML = qa_final;
+        </script>
+    </body>
+</html>
